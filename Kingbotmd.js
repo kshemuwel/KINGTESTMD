@@ -1381,7 +1381,7 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: media.thumb },
+                    image: fs.readFileSync('./src/sd.jpg'),
                     caption: `
 *[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
                     
@@ -1408,7 +1408,7 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-//                    image: { url: media.thumb },
+                    image: fs.readFileSync('./src/sd.jpg'),
                     caption: `
 *[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
                     
