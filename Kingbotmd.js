@@ -1270,7 +1270,7 @@ break
                 let buttons = [
                     {buttonId: `hsong ${kingbotsearch.url}`, buttonText: {displayText: '🔥 HIGH QUALITY 🔥'}, type: 1},
                     {buttonId: `msong  ${kingbotsearch.url}`, buttonText: {displayText: '🎲 MEDIUM QUALITY 🎲'}, type: 1},
-                    {buttonId: `id3`, buttonText: {displayText: '✨ ᴍᴏʀᴇ ᴅᴇᴀᴛᴀɪʟꜱ ✨'+'\n\n\n▣ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ ➢ '+`${kingbotsearch.description}`+'\n▣ ᴀᴜᴛʜᴏʀ ➢ '+`${kingbotsearch.author.name}`+'\n▣ ᴄʜᴀɴɴᴇʟ ➢ '+`${kingbotsearch.author.url}`}, type: 1}
+                    {buttonId: `id3`, buttonText: {displayText: '✨ ᴍᴏʀᴇ ᴅᴇᴀᴛᴀɪʟꜱ ✨'+'\n\n\n▣ ɪᴅ ➢ '+`${kingbotsearch.videoId}`+'▣ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ ➢ '+`${kingbotsearch.description}`+'\n▣ ᴀᴜᴛʜᴏʀ ➢ '+`${kingbotsearch.author.name}`+'\n▣ ᴄʜᴀɴɴᴇʟ ➢ '+`${kingbotsearch.author.url}`}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
@@ -1283,8 +1283,6 @@ break
    
 ╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶◉
 │▣ ᴛɪᴛʟᴇ ➢ ${kingbotsearch.title}
-│▣ ᴇxᴛ ➢ Search
-│▣ ɪᴅ ➢ ${kingbotsearch.videoId}
 │▣ ᴅᴜʀᴀᴛɪᴏɴ ➢ ${kingbotsearch.timestamp}
 │▣ ᴠɪᴇᴡᴇꜱ ➢ ${kingbotsearch.views}
 │▣ ᴜᴘʟᴏᴀᴅᴇᴅ ᴏɴ ➢ ${kingbotsearch.ago}
@@ -1385,7 +1383,7 @@ break
                 let buttonMessage = {
                     image: { url: media.thumb },
                     caption: `
-*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs UᴘʟᴏᴀᴅɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
+*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
                     
 🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
@@ -1393,7 +1391,7 @@ break
                     headerType: 4
                 }
 
-                KingmdWH.sendMessage(m.chat, {text:`👋𝐇𝐞𝐥𝐥𝐨 ${pushname}\n*I ᴀᴍ ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*`})
+
                 KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
                 KingmdWH.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
