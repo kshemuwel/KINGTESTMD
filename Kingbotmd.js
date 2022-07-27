@@ -1383,8 +1383,11 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-//                    image: { url: media.thumb },
-                    caption: `*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs UᴘʟᴏᴀᴅɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*\n\n🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
+                    image: { url: media.thumb },
+                    caption: `
+*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs UᴘʟᴏᴀᴅɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
+                    
+🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
                     buttons: buttons,
                     headerType: 4
