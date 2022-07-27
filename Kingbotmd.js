@@ -1239,8 +1239,8 @@ break
                 let search = await yts(text)
                 let anu = search.videos[Math.floor(Math.random() * search.videos.length)]
                 let buttons = [
-                    {buttonId: `ytmp3 ${anu.url}`, buttonText: {displayText: '🎶Audio🎶'}, type: 1},
-                    {buttonId: `ytmp4 ${anu.url}`, buttonText: {displayText: '📽️Video📽️'}, type: 1}
+                    {buttonId: `song ${anu.url}`, buttonText: {displayText: '🎶Audio🎶'}, type: 1},
+                    {buttonId: `video ${anu.url}`, buttonText: {displayText: '📽️Video📽️'}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
@@ -1383,21 +1383,14 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: { url: media.thumb },
-                    caption: `
-╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶◉
-│▣ Title : ${media.title}
-│▣ File Size : ${media.filesizeF}
-│▣ Resolution : ${args[1] || '320kbps'}
-│
-│🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁
-╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶◉`,
+//                    image: { url: media.thumb },
+                    caption: `*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs UᴘʟᴏᴀᴅɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*\n\n🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
                     buttons: buttons,
                     headerType: 4
                 }
 
-                KingmdWH.sendMessage(m.chat, {text:`👋𝐇𝐞𝐥𝐥𝐨 ${pushname}\n*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*`})
+                KingmdWH.sendMessage(m.chat, {text:`👋𝐇𝐞𝐥𝐥𝐨 ${pushname}\n*I ᴀᴍ ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*`})
                 KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
                 KingmdWH.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
