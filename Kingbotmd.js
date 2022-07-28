@@ -1430,6 +1430,7 @@ break
                 KingmdWH.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
+            
                         case 'mvideo': {
                 let { ytv } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 360p`)
@@ -1551,10 +1552,30 @@ Report Message: ${text}` })
 reply('Welcome !')
                     }
                     break
+                    case 'testbtn': {
+                
+                let buttons = [
+                    {buttonId: `kingbug m song thank you!`, buttonText: {displayText: '✨ THANK YOU ✨'}, type: 1},
+                    {buttonId: `song lelena`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
+                ]
+                let buttonMessage = {
+//                    image: fs.readFileSync('./src/sd.jpg'),
+                    text: `
+*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
+                    
+🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
+                    footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
+                    buttons: buttons,
+                    headerType: 4
+                }
+
+                KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
+                reply('.')
+            }
+            break
                      case 'alive': {
                      
-                     let { chat, fromMe, id } = m.quoted
-          KingmdWH.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender }}})
+          KingmdWH.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: { remoteJid: m.chat, fromMe: true, id: quoted.id }}})
                      
 Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                    ✦𝙷𝙸 𝚃𝙷𝙴𝚁𝙴,࿐
