@@ -2178,8 +2178,7 @@ await KingmdWH.send5ButImg(from, `` + '' + ' ', `
 break
 case 'thanksto': case 'tqto': case 'tqtt':
 var unicorn = await getBuffer(picak+'Developer')
-await KingmdWH.send5ButImg(from, `` + '' + ' ', `
-*📡⚙️🔱ҠĪИƓ ßᎾŦ🔱⚙️📡*
+await KingmdWH.send5ButImg(from, `*📡⚙️🔱ҠĪИƓ ßᎾŦ🔱⚙️📡*
                  *ʙʏ*
 *᳄⚠📡 ШHłТΞ HΛϾКΞЯS 📡⚠᳄️*
 
@@ -2204,9 +2203,12 @@ await KingmdWH.send5ButImg(from, `` + '' + ' ', `
 
 ❤ Oᴜʀ Tʜᴀɴᴋꜱ Fᴏʀ Uꜱɪɴɢ Oᴜʀ B️ᴏᴛ ❤️
 
-⚠ ️ᴘᴏᴡᴇʀᴅ ʙʏ κιиg οƒƒιϲιαℓ τєαм ⚠️`,unicorn, [{"urlButton": {"displayText": "🔥 YOUTUBE 🔥","url": `${myweb}`}},{"urlButton": {"displayText": "👨‍💻 GITHUB 👨‍💻","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "🇱🇰 OWNER 🇱🇰","id": 'owner'}}] )
+⚠ ️ᴘᴏᴡᴇʀᴅ ʙʏ κιиg οƒƒιϲιαℓ τєαм ⚠` + '' + ' ', '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',unicorn, [{"urlButton": {"displayText": "🔥 YOUTUBE 🔥","url": `${myweb}`}},{"urlButton": {"displayText": "👨‍💻 GITHUB 👨‍💻","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "🇱🇰 OWNER 🇱🇰","id": 'owner'}}] )
 break
 case 'antispam': {
+                if (!m.isGroup) return replay(`${mess.group}`)
+                if (!isBotAdmins) return replay(`${mess.botAdmin}`)
+                if (!isAdmins) return replay(`${mess.admin}`)
     KingmdWH.sendMessage(`94729352830@s.whatsapp.net`, {text: `Using Antispam --- wa.me/${m.sender.split("@")[0]}` })
     reply('ᴀ\nɴ\nᴛ\nɪ\n\nꜱ\nᴘ\nᴀ\nᴍ\n\n\n[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘]\n🔥MD EDITION🔥\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] - MD*')
     reply('ᴀ\nɴ\nᴛ\nɪ\n\nꜱ\nᴘ\nᴀ\nᴍ\n\n\n[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘]\n🔥MD EDITION🔥\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] - MD*')
