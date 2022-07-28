@@ -1553,7 +1553,8 @@ reply('Welcome !')
                     break
                      case 'alive': {
                      
-          KingmdWH.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: { remoteJid: m.chat, fromMe: true, id: quoted.id }}})
+                     let { chat, fromMe, id } = m.quoted
+          KingmdWH.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender }}})
                      
 Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                    ✦𝙷𝙸 𝚃𝙷𝙴𝚁𝙴,࿐
