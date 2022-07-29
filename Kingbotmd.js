@@ -186,14 +186,14 @@ const reply = (teks) => {
 	}
 	
 //antilink
-    if (db.data.chats.antilink) {
+    if (db.data.chats[m.chat].antilink) {
     if (budy.match(`chat.whatsapp.com`)) {
+    reply(`*⚠️「 ANTI LINK 」⚠️*\n\n⌛ You have been detected sending a group link, sorry you will be kicked !👿`)
+    replay('_*Group Links Not Allowed This Group*_\n👑ᴬɴᵀɪᴳʀᴼᴜᴾ ʟᴵɴᴷ ʙʸ ᴋᴵɴᴳ ʙᴼᴛ ᴵᴺᴳ👑\n\n\n</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷')
     if (!isBotAdmins) return reply(`I Am Not An Admin, How Could I Kick Somebody Who Send Link 😒`)
     let gclink = (`https://chat.whatsapp.com/`+await KingmdWH.groupInviteCode(m.chat))
     let isLinkThisGc = new RegExp(gclink, 'i')
     let isgclink = isLinkThisGc.test(m.text)
-    reply(`*⚠️「 ANTI LINK 」⚠️*\n\n⌛ You have been detected sending a group link, sorry you will be kicked !👿`)
-    replay('_*Group Links Not Allowed This Group*_\n👑ᴬɴᵀɪᴳʀᴼᴜᴾ ʟᴵɴᴷ ʙʸ ᴋᴵɴᴳ ʙᴼᴛ ᴵᴺᴳ👑\n\n\n</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷')
     if (isgclink) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😁, Because You Sent This Group Link🤘`)
     if (isAdmins) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😁, Because You Are An Admin Of The Group❤️`)
     if (isCreator) return reply(`Group Is Installed With Anti-Link But I Won't Kick You 😉, Because You Are My Owner 😘🔥`)
