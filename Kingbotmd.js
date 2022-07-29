@@ -1716,35 +1716,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
             break
            case 'verify': {
 	         	reply('[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] CONFERMED 2022 |>') }
-	       break 
-	       case 'team': {
-Teammsg=`
-👋 𝙷𝙴𝚈 𝙰𝙻𝙻
-🍁 𝙸 𝙰𝙼 𝙰 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 𝚄𝚂𝙴𝚁 𝙱𝙾𝚃 🍁
-🎭 𝙼𝚈 𝙽𝙰𝙼𝙴 𝙸𝚂 𝙺𝙸𝙽𝙶 𝙱𝙾𝚃 🎭
-
-
-👨‍💻️ ᴄʀᴇᴀᴛᴇᴅ ʙʏ   :: ᴡʜɪᴛᴇ ʜᴀᴄᴋᴇʀ
-👨‍💻️ ᴠɪᴄᴇ ᴄᴀᴘᴛɪᴏɴ :: ᴍʀ.ᴛɪᴍᴀ
-
-✨ ᴛᴇᴀᴍ ᴀᴅᴍɪɴꜱ ✨
-        :: ᴍɪ.ᴛɪᴍᴀ
-        :: ꜱᴀɴᴜᴋᴀ
-        :: ᴍᴀʟɪᴛʜᴀ
-
-✨ ᴛᴇᴀᴍ ᴍᴇᴍʙᴇʀꜱ ✨
-        :: ɪɴᴜᴋᴀ
-        :: ᴘʀᴀᴠᴇᴇɴ
-        :: ᴜᴄʜɪᴛʜᴀ
-        :: ᴍʀ.ɴɪᴍᴀ
-        :: ᴅɪʟꜱʜᴀɴ
-
-
-🇱🇰️ ροωєяє∂ ϐγ κιиg οƒƒιϲιαℓ τєαм 🇱🇰`
-
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({ templateMessage: { hydratedTemplate: { hydratedContentText: Teammsg, locationMessage: { jpegThumbnail: fs.readFileSync('./KINGMedia/logo.jpeg')},  hydratedFooterText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷', hydratedButtons: [ { urlButton: { displayText: '🔥 YOUTUBE 🔥', url: `${myweb}`} }, { urlButton: { displayText: '👨‍💻 GITHUB 👨‍💻', url: `${sc}`} }, { quickReplyButton: { displayText: '🎭 INFO BOT 🎭', id: `${prefix}bot`} }, { quickReplyButton: { displayText: '🍁 BOT SYSTEM 🍁', id: `${prefix}kingbotinfo`} }, { quickReplyButton: { displayText: '🇱🇰 OWNER 🇱🇰', id: `${prefix}owner`} }    ]   } } }), { userJid: m.chat })    KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
-	                   }
-	                   break
+	     break
 	       case 'kingjoinsupportgroupnowok': {
 	      
                 await KingmdWH.groupAcceptInvite('https://chat.whatsapp.com/FknPAOHRdBdBlAPLyfIwLG').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
