@@ -31,7 +31,7 @@ global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
     new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
       new mongoDB(opts['db']) :
-      new JSONFile(`DATABASE/database.json`)
+      new JSONFile(`database/database.json`)
 )
 global.db.data = {
     users: {},
@@ -77,7 +77,7 @@ async function startKingmdWH() {
         if (!mek.message) return
         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
         if (mek.key && mek.key.remoteJid === 'status@broadcast') return
-        if (!KingmdWH.public && !mek.key.fromMe ) return
+        if (!KingmdWH.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(KingmdWH, mek, store)
         require("./Kingbotmd")(KingmdWH, m, chatUpdate, store)
