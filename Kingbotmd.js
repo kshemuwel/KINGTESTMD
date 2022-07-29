@@ -50,10 +50,10 @@ const ikan = ['🔥','🎲','🎭']
  let _darahOrg = JSON.parse(fs.readFileSync('./storage/user/darah.json'))
 
 //Database\\
-let setik = JSON.parse(fs.readFileSync('./database/setik.json'));
-let vien = JSON.parse(fs.readFileSync('./database/vien.json'));
-let imagi = JSON.parse(fs.readFileSync('./database/imagi.json'))
-let videox = JSON.parse(fs.readFileSync('./database/video.json'))
+let setik = JSON.parse(fs.readFileSync('./DATABASE/sticker.json'));
+let vien = JSON.parse(fs.readFileSync('./DATABASE/vien.json'));
+let imagi = JSON.parse(fs.readFileSync('./DATABASE/image.json'))
+let videox = JSON.parse(fs.readFileSync('./DATABASE/video.json'))
 
 //read database\\
 let tebaklagu = db.data.game.tebaklagu = []
@@ -142,7 +142,7 @@ try {
     }
 
         
-	//group target \\
+//group target
 const reply = (teks) => {
         KingmdWH.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘]`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./KINGMedia/logo.jpeg`),"sourceUrl": "https://telegra.ph/file/24b9b8507613125d34bd1.jpgo"}}}, { quoted: m})
     }
@@ -151,7 +151,7 @@ const reply = (teks) => {
         KingmdWH.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": ` [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘]`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./KINGMedia/logo.jpeg`),"sourceUrl": "https://chat.whatsapp.com/KNXP4fcK8ehJsdPlsM97wr"}}}, { quoted: m})
     }
 	
-    //Public & Self\\
+//Public & Private
     if (!KingmdWH.public) {
         if (!m.key.fromMe) return
     }
@@ -188,6 +188,7 @@ const reply = (teks) => {
     if (db.data.chats[m.chat].antilink) {
     if (budy.match(`chat.whatsapp.com`)) {
     reply(`*⚠️「 ANTI LINK 」⚠️*\n\n⌛ You have been detected sending a group link, sorry you will be kicked !👿`)
+    replay('_*Group Links Not Allowed This Group*_\n👑ᴬɴᵀɪᴳʀᴼᴜᴾ ʟᴵɴᴷ ʙʸ ᴋᴵɴᴳ ʙᴼᴛ ᴵᴺᴳ👑\n\n\n</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷')
     if (!isBotAdmins) return reply(`I Am Not An Admin, How Could I Kick Somebody Who Send Link 😒`)
     let gclink = (`https://chat.whatsapp.com/`+await KingmdWH.groupInviteCode(m.chat))
     let isLinkThisGc = new RegExp(gclink, 'i')
@@ -552,13 +553,8 @@ switch(command) {
             break
 		
 	case 'react': {
-                if (!isCreator) throw mess.owner
-                reactionMessage = {
-                    react: {
-                        text: args[0],
-                        key: { remoteJid: m.chat, fromMe: true, id: quoted.id }
-                    }
-                }
+                if (!isCreator) reply(`${mess.owner}`)
+                reactionMessage = { react: { text: args[0], key: { remoteJid: m.chat, fromMe: true, id: quoted.id } }   }
                 KingmdWH.sendMessage(m.chat, reactionMessage)
             }
 					break
@@ -1098,8 +1094,6 @@ break
              break
             case 'sticker': case 's': case 'stickergif': case 'sgif': {
             if (!quoted) return replay(`Reply Video/Image With Caption ${prefix + command}`)
-    
-            reply(mess.wait)
             KingmdWH.sendMessage(m.chat, {text:'⚒️ ᴄᴏɴᴠᴇʀᴛɪɴɢ ᴛᴏ ꜱᴛɪᴄᴋᴇʀ...'})
                     if (/image/.test(mime)) {
                 let media = await quoted.download()
@@ -1278,7 +1272,7 @@ break
                 let buttons = [
                     {buttonId: `hsong ${kingbotsearch.url}`, buttonText: {displayText: '🔥 HIGH QUALITY 🔥'}, type: 1},
                     {buttonId: `msong  ${kingbotsearch.url}`, buttonText: {displayText: '🎲 MEDIUM QUALITY 🎲'}, type: 1},
-                    {buttonId: `id3`, buttonText: {displayText: '✨ ᴍᴏʀᴇ ᴅᴇᴀᴛᴀɪʟꜱ ✨'+'\n\n\n▣ ɪᴅ ➢ '+`${kingbotsearch.videoId}`+'▣ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ ➢ '+`${kingbotsearch.description}`+'\n▣ ᴀᴜᴛʜᴏʀ ➢ '+`${kingbotsearch.author.name}`+'\n▣ ᴄʜᴀɴɴᴇʟ ➢ '+`${kingbotsearch.author.url}`}, type: 1}
+                    {buttonId: `id3`, buttonText: {displayText: '✨ ᴍᴏʀᴇ ᴅᴇᴀᴛᴀɪʟꜱ ✨'+'\n\n\n▣ ɪᴅ ➢ '+`${kingbotsearch.videoId}`+'\n▣ ᴅᴇꜱᴄʀɪᴘᴛɪᴏɴ ➢ '+`${kingbotsearch.description}`+'\n▣ ᴀᴜᴛʜᴏʀ ➢ '+`${kingbotsearch.author.name}`+'\n▣ ᴄʜᴀɴɴᴇʟ ➢ '+`${kingbotsearch.author.url}`}, type: 1}
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
@@ -1600,7 +1594,7 @@ Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
       🔰 ꜰᴏʀ 24/7 ʜᴇʟᴘ ᴍꜱɢ ᴍᴇ 🔰`
       
            let buttons = [
-               {buttonId: `command`, buttonText: {displayText: '🎭 LIST MENU 🎭'}, type: 1},
+               {buttonId: `command`, buttonText: {displayText: '☰ LIST MENU ☰'}, type: 1},
                {buttonId: `ping`, buttonText: {displayText: '🎲 SYSTEM STATUS 🎲'}, type: 1},
                {buttonId: `kingbotinfo`, buttonText: {displayText: '🍁 BOT SYSTEM 🍁️'}, type: 1},
                 ]
@@ -1637,7 +1631,7 @@ Kingbotinfo = `
 └──────────────❖ `
            let buttons = [
                { urlButton: { displayText: '👨‍💻 GITHUB 👨‍💻', url: `${sc}`} }, 
-               { quickReplyButton: { displayText: '🎭 LIST MENU 🎭', id: `${prefix}command`} },
+               { quickReplyButton: { displayText: '☰ LIST MENU ☰', id: `${prefix}command`} },
                { quickReplyButton: { displayText: '🍁 SHORT MENU🍁', id: `${prefix}shortmenu`} },
                { quickReplyButton: { displayText: '🇱🇰 OWNER 🇱🇰', id: `${prefix}owner`} }
                 ]
@@ -1661,14 +1655,28 @@ kingbotcmd = `╹ 𓄂᳆⃞⃚😈×͜×[🇱🇰㉿𝗜𝗡𝗚 𝗕𝗢𝗧�
 │🎲 𝙲𝙾 𝙾𝚆𝙽𝙴𝚁 ➢ 𝙼𝚁.𝚃𝙸𝙼𝙰
 ╰──────────────◉
 
+╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
+├ Nᴏɴ MD Bᴏᴛ Mᴀᴋɪɴɢ Sᴛᴀʀᴛᴇᴅ Oɴ
+│2022:03:05
+│
+├ Nᴏɴ MD Bᴏᴛ Rᴇʟᴇᴀꜱᴇᴅ Oɴ
+│2022:04:06
+│
+├ MD Bᴏᴛ Mᴀᴋɪɴɢ Sᴛᴀʀᴛᴇᴅ Oɴ
+│2022:06:20
+│
+├ MD Bᴏᴛ Rᴇʟᴇᴀꜱᴇᴅ Oɴ
+│2022:07:01
+╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
 
-  ┋ *⚜️ ꜰᴏʀ 24/7 ʜᴇʟᴘ ᴍꜱɢ ᴍᴇ ⚜️*┋
+
+ ┋ *⚜️ ꜰᴏʀ 24/7 ʜᴇʟᴘ ᴍꜱɢ ᴍᴇ ⚜️*┋
                      
   🍁𝗧𝗵𝗮𝗻𝗸 𝘆𝗼𝘂 𝗳𝗼𝗿 𝗰𝗵𝗼𝗼𝘀𝗶𝗻𝗴🍁
            🔥❝𝗞𝗜𝗡𝗚 𝗕𝗢𝗧❞🔥`
 
 let buttons = [
-               {buttonId: `command`, buttonText: {displayText: '🎭 LIST MENU 🎭'}, type: 1},
+               {buttonId: `command`, buttonText: {displayText: '☰ LIST MENU ☰'}, type: 1},
                {buttonId: `ping`, buttonText: {displayText: '🎲 SYSTEM STATUS 🎲'}, type: 1},
                {buttonId: `owner`, buttonText: {displayText: '🇱🇰 OWNER 🇱🇰️'}, type: 1}
                 ]
@@ -1698,7 +1706,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                             hydratedButtons: [
                         { urlButton: { displayText: '🔥 YOUTUBE 🔥', url: `${myweb}`} }, 
                         { urlButton: { displayText: '👨‍💻 GITHUB 👨‍💻', url: `${sc}`} }, 
-                        { quickReplyButton: { displayText: '🎭 LIST MENU 🎭', id: `${prefix}command`} },
+                        { quickReplyButton: { displayText: '☰ LIST MENU ☰', id: `${prefix}command`} },
                         { quickReplyButton: { displayText: '🍁 SHORT MENU🍁', id: `${prefix}shortmenu`} },
                         { quickReplyButton: { displayText: '🇱🇰 OWNER 🇱🇰', id: `${prefix}owner`} }  ] } }  }), { userJid: m.chat })
                                    
@@ -1733,21 +1741,7 @@ Teammsg=`
 
 🇱🇰️ ροωєяє∂ ϐγ κιиg οƒƒιϲιαℓ τєαм 🇱🇰`
 
-const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: {
-                        hydratedTemplate: {
-                            hydratedContentText: Teammsg,
-                            locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./KINGMedia/logo.jpeg')}, 
-                            hydratedFooterText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
-                            hydratedButtons: [
-                            { urlButton: { displayText: '🔥 YOUTUBE 🔥', url: `${myweb}`} },
-                            { urlButton: { displayText: '👨‍💻 GITHUB 👨‍💻', url: `${sc}`} },
-                            { quickReplyButton: { displayText: '🎭 INFO BOT 🎭', id: `${prefix}bot`} },
-                            { quickReplyButton: { displayText: '🍁 BOT SYSTEM 🍁', id: `${prefix}kingbotinfo`} },
-                            { quickReplyButton: { displayText: '🇱🇰 OWNER 🇱🇰', id: `${prefix}owner`} }
-                                                        ]   } } }), { userJid: m.chat })
-                KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
+const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({ templateMessage: { hydratedTemplate: { hydratedContentText: Teammsg, locationMessage: { jpegThumbnail: fs.readFileSync('./KINGMedia/logo.jpeg')},  hydratedFooterText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷', hydratedButtons: [ { urlButton: { displayText: '🔥 YOUTUBE 🔥', url: `${myweb}`} }, { urlButton: { displayText: '👨‍💻 GITHUB 👨‍💻', url: `${sc}`} }, { quickReplyButton: { displayText: '🎭 INFO BOT 🎭', id: `${prefix}bot`} }, { quickReplyButton: { displayText: '🍁 BOT SYSTEM 🍁', id: `${prefix}kingbotinfo`} }, { quickReplyButton: { displayText: '🇱🇰 OWNER 🇱🇰', id: `${prefix}owner`} }    ]   } } }), { userJid: m.chat })    KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
 	                   }
 	                   break
 	       case 'kingjoinsupportgroupnowok': {
@@ -1967,7 +1961,7 @@ kingbotshortmenu = `
 
 
 ┏━━━━━━━━━━━━━📥
-┣━🍁 ᴅᴏᴡɴʟᴏᴀᴅ ᴄᴍᴅ 🍁━┫
+┣━〘 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐂𝐌𝐃 〙━┫
 ┣━━━━━━━━━━━━━
 ┃
 ┃◈ .ꜱᴏɴɢ {ꜱᴏɴɢ ɴᴀᴍᴇ}
@@ -1975,7 +1969,7 @@ kingbotshortmenu = `
 ┗━━━━━━━━━━━━━📥
 
 ┏━━━━━━━━━━━━━🔍
-┣━━🍁 ꜱᴇᴀʀᴄʜ ᴄᴍᴅ 🍁━━┫
+┣━━〘 𝐒𝐞𝐚𝐫𝐜𝐡 𝐂𝐌𝐃 〙━━┫
 ┣━━━━━━━━━━━━━
 ┃
 ┃◈ .ʏᴛ {ꜱᴇᴀʀᴄʜ ɴᴀᴍᴇ}
@@ -1983,7 +1977,7 @@ kingbotshortmenu = `
 ┗━━━━━━━━━━━━━🔎
 
 ┏━━━━━━━━━━━━━‍🪀
-┣━━🍁 ɢʀᴏᴜᴘ ᴄᴍᴅ 🍁━━┫
+┣━━〘 𝐆𝐫𝐨𝐮𝐩 𝐂𝐌𝐃 〙━━┫
 ┣━━━━━━━━━━━━━
 ┃
 ┃◈ .ᴋɪᴄᴋ {ʀᴇᴘʟʏ}
@@ -1995,14 +1989,14 @@ kingbotshortmenu = `
 ┗━━━━━━━━━━━━━🪀
 
 ┏━━━━━━━━━━━━━‍🛠️
-┣━━🍁 ᴄᴏɴᴠᴇʀᴛ ᴄᴍᴅ 🍁━┫
+┣━━〘 𝐂𝐨𝐧𝐯𝐞𝐫𝐭 𝐂𝐌𝐃 〙━┫
 ┣━━━━━━━━━━━━━
 ┃
 ┃◈ .ꜱᴛɪᴄᴋᴇʀ {ʀᴇᴘʟʏ ᴘʜᴏᴛᴏ}
 ┗━━━━━━━━━━━━━🛠️
 
 ┏━━━━━━━━━━━━━‍💫
-┣━━🍁 ᴏᴛʜᴇʀ ᴄᴍᴅ 🍁━━┫
+┣━━〘 𝐎𝐭𝐡𝐞𝐫 𝐂𝐌𝐃 〙━━┫
 ┣━━━━━━━━━━━━━
 ┃
 ┃◈ .ᴀʟɪᴠᴇ
@@ -2031,13 +2025,13 @@ kingbotshortmenu = `
     
 Kingbotgitlink=`*🎭 [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] created by ШHłТΞ HΛϾКΞЯS 🎭*
 
-*🍁 Contact Owner ::* https://wa.me/94729352830?text=HI......%20𝚱𝚰𝚴Ｇ%20𝛃𝚯𝚪%20OWNER࿐
+*⧠ Contact Owner ::* https://wa.me/94729352830?text=HI......%20𝚱𝚰𝚴Ｇ%20𝛃𝚯𝚪%20OWNER࿐
 
-*🍁 Github link ::* https://github.com/KING-BOT-OFFICIAL/KING-BOT-MD
+*⧠ Github link ::* https://github.com/KING-BOT-OFFICIAL/KING-BOT-MD
 
-*🍁 King Bot Public Group ::* https://chat.whatsapp.com/KNXP4fcK8ehJsdPlsM97wr
+*⧠ King Bot Public Group ::* https://chat.whatsapp.com/KNXP4fcK8ehJsdPlsM97wr
 
-*🍁 My channel link ::* https://youtube.com/channel/UCgwWV1Cya4_gUFKYOQYQtHw
+*⧠ My channel link ::* https://youtube.com/channel/UCgwWV1Cya4_gUFKYOQYQtHw
 
 
 *_🔰 For More Updates Subscribe The Channel 🔰_*`
