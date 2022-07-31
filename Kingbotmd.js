@@ -1233,7 +1233,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: images },
-                    text: `*-------「 IMAGE SEARCH 」-------*
+                    caption: `*-------「 IMAGE SEARCH 」-------*
 🤠 *Query* : ${text}
 🔗 *Media Url* : ${images}`,
                     footer: KingmdWH.user.name,
@@ -1255,7 +1255,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
-                    text: `
+                    caption: `
 🔥 Title : ${anu.title}
 🔥 Ext : Search
 🔥 ID : ${anu.videoId}
@@ -1285,7 +1285,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
-                    text: `
+                    caption: `
 ╭──────────────◉
 │  🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1319,7 +1319,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: kingbotsearch.thumbnail },
-                    text: `
+                    caption: `
 ╭──────────────◉
 │    🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1355,7 +1355,7 @@ break
                 ]
                 let buttonMessage = {
                     image: { url: anu.thumbnail },
-                    text: `
+                    caption: `
 ╭──────────────◉
 │ 🔥 ᴋɪɴɢ ʙᴏᴛ - ᴍᴅ ᴠᴇʀꜱɪᴏɴ 🔥
 ╰──────────────◉
@@ -1555,27 +1555,6 @@ Report Message: ${text}` })
 
 reply('Welcome !')
                     }
-                    break
-                    case 'testbtn': {
-                
-                let buttons = [
-                    {buttonId: `kingbug m song thank you!`, buttonText: {displayText: '✨ THANK YOU ✨'}, type: 1},
-                    {buttonId: `song lelena`, buttonText: {displayText: '🍁 DOWNLOAD AGAIN 🍁'}, type: 1}
-                ]
-                let buttonMessage = {
-//                    image: fs.readFileSync('./src/sd.jpg'),
-                    text: `
-*[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] ɪs SᴇᴀʀᴄʜɪɴG Yᴏᴜʀ SᴏɴG ✨➾🔎*
-                    
-🍁ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ ₂₀₂₂🍁`,
-                    footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </> ▷',
-                    buttons: buttons,
-                    headerType: 4
-                }
-
-                KingmdWH.sendMessage(m.chat, buttonMessage, { quoted: m })
-                reply('.')
-            }
             break
                      case 'alive': {
                     
@@ -1611,7 +1590,7 @@ Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                 
                 let buttonMessage = {
                     image: fs.readFileSync('./src/alivelogo.jpg'),
-                    text: Kingbotalive,
+                    caption: Kingbotalive,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1647,7 +1626,7 @@ Kingbotinfo = `
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    text: Kingbotinfo,
+                    caption: Kingbotinfo,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1692,7 +1671,7 @@ let buttons = [
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    text: kingbotcmd,
+                    caption: kingbotcmd,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1817,7 +1796,7 @@ Kingbotehimenu = `🔥ᏦᏆΝᏀ ᏴϴͲ ᎬᎻᏆ ᏟϴᏞᏞᎬᏟͲᏆϴΝ�
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/ehilogo.jpg'),
-                    text: Kingbotehimenu,
+                    caption: Kingbotehimenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1851,7 +1830,7 @@ kingbotehiapkmenu = `🔥ᏦᏆΝᏀ ᏴϴͲ ᎬᎻᏆ ᎪᏢᏦ ᏟϴᏞᏞᎬ�
                      ]
                 let buttonMessage = {
                     image: fs.readFileSync('./KINGMedia/logo.jpeg'),
-                    text: kingbotehiapkmenu,
+                    caption: kingbotehiapkmenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -1985,7 +1964,7 @@ kingbotshortmenu = `
                          ]
                 let buttonMessage = {
                     image: fs.readFileSync('./KINGMedia/logo.jpeg'),
-                    text: kingbotshortmenu,
+                    caption: kingbotshortmenu,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
@@ -2020,7 +1999,7 @@ let buttons = [
                 ]
                 let buttonMessage = {
                     image: fs.readFileSync('./src/bot.jpg'),
-                    text: Kingbotgitlink,
+                    caption: Kingbotgitlink,
                     footer: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     buttons: buttons,
                     headerType: 4
