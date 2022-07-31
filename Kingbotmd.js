@@ -1157,25 +1157,6 @@ break
                 KingmdWH.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
                 break
-                case 'ytsrow': {
-                if (!text) return replay(`Example : ${prefix + command} Anime Story Whatsapp`)
-                let yts = require("yt-search")
-                let search = await yts(text)
-                let no = 1
-                let kingyt of search.all
-
-let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
-                listMessage :{
-                    title: `👋ʜɪ ᴅᴇᴀʀ ${pushname}\n\n`,
-                    description: 'Yt Search',
-                    buttonText: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ꜱᴇʟᴇᴄᴛ ᴠɪᴅᴇᴏ",
-                    footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
-                    listType: "SINGLE_SELECT",
-                    sections: [ { "title": `Yt Search King Bot - No ${no++}`, "rows": [{ "title": `${kingyt.title}`, "description": `Download As A Video`, "rowId": `.video ${kingyt.url}`} ]},  ]
-                    listType: 1 } }), {})
-            KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
-            }
-            break
         case 'gimage': case 'img': case 'googleimage': {
         if (!text) return reply(`Example : ${prefix + command} KING BOT MD`)
         let gis = require('g-i-s')
