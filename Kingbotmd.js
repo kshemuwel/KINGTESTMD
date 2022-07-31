@@ -1514,7 +1514,7 @@ reply('Welcome !')
             break
                      case 'alive': {
                     
-          KingmdWH.sendMessage(m.chat, react: { text: "💖", key: message.key })
+          KingmdWH.sendMessage(m.chat, react: { text: "💖", key: {key: { remoteJid: m.chat, fromMe: true, id: quoted.id } })
                      
 Kingbotalive = `─┈┈┈┄┄╌╌╌╌┄┄┈┈┈─
                    ✦𝙷𝙸 𝚃𝙷𝙴𝚁𝙴,࿐
