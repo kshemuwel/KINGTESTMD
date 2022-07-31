@@ -1662,14 +1662,6 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
            case 'verify': {
 	         	reply('[🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] CONFERMED 2022 |>') }
 	     break
-	       case 'kingjoinsupportgroupnowok': {
-                if (!isCreator) return replay(`${mess.owner}`)
-                reply(mess.wait)
-                let result = args[0].split('https://chat.whatsapp.com/')'FknPAOHRdBdBlAPLyfIwLG'
-                await KingmdWH.groupAcceptInvite(result).then((res) => reply(jsonformat(res))).catch((err) => reply(jsonformat(err)))
-                replay('දැන් [🇱🇰𝚱𝚰𝚴Ｇ 𝛃𝚯𝚪🤘] official support group එකට join වෙයි...')
-	                            }
-                      break
                                 case 'command': {
                 
 Kingbotmenu=`
