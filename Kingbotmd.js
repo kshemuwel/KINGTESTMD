@@ -1162,8 +1162,7 @@ break
                 let yts = require("yt-search")
                 let search = await yts(text)
                 let no = 1
-for (let kingyt of search.all) { kingrowytsearch += { "title": `Yt Search King Bot - No ${no++}`, "rows": [{ "title": `${kingyt.title}`, "description": `Download As A Video`, "rowId": `.video ${kingyt.url}`} ]},  }
-
+                let kingyt of search.all
 
 let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                 listMessage :{
@@ -1172,7 +1171,7 @@ let template = await generateWAMessageFromContent(m.chat, proto.Message.fromObje
                     buttonText: "ᴛᴀᴘ ʜᴇʀᴇ ᴛᴏ ꜱᴇʟᴇᴄᴛ ᴠɪᴅᴇᴏ",
                     footerText: '</> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴋɪɴɢ ʙᴏᴛ </>️ ▷',
                     listType: "SINGLE_SELECT",
-                    sections: kingrowytsearch
+                    sections: [ { "title": `Yt Search King Bot - No ${no++}`, "rows": [{ "title": `${kingyt.title}`, "description": `Download As A Video`, "rowId": `.video ${kingyt.url}`} ]},  ]
                     listType: 1 } }), {})
             KingmdWH.relayMessage(m.chat, template.message, { messageId: template.key.id })
             }
